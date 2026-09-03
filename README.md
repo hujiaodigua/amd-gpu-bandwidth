@@ -149,6 +149,45 @@ Example output:
 
 ---
 
+## Test Results
+
+Measured with `./vk_bandwidth` (256 MB buffer) on an AMD Ryzen 9 5900X host (Ubuntu 22.04):
+
+| GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
+|---|---|---|---|
+| AMD Radeon RX 5300 (RADV NAVI14) | **150.23 GB/s** | **14.37 GB/s** | **13.69 GB/s** |
+| Tesla P4 | **147.96 GB/s** | **6.66 GB/s** | **6.61 GB/s** |
+
+Full output:
+
+```
+== AMD Radeon RX 5300 (RADV NAVI14) ==
+  driverVersion 23.2.1   device-local heap 3056.0 MB
+  buffer size 256 MB
+
+  -- VRAM bandwidth --
+  D2D copy         best   150.23 GB/s   avg   146.10 GB/s
+
+  -- PCIe bandwidth --
+  H2D (write)      best    14.37 GB/s   avg    14.31 GB/s
+  D2H (read)       best    13.69 GB/s   avg    13.64 GB/s
+
+== Tesla P4 ==
+  driverVersion 580.504.576   device-local heap 7680.0 MB
+  buffer size 256 MB
+
+  -- VRAM bandwidth --
+  D2D copy         best   147.96 GB/s   avg   147.77 GB/s
+
+  -- PCIe bandwidth --
+  H2D (write)      best     6.66 GB/s   avg     6.65 GB/s
+  D2H (read)       best     6.61 GB/s   avg     6.60 GB/s
+```
+
+> The RX 5300's PCIe bandwidth is capped at ~14 GB/s because it sits behind a Navi 10 PCIe switch with a PCIe 4.0 ×8 upstream link; the Tesla P4 runs at PCIe 3.0 ×8.
+
+---
+
 ## Notes
 
 - Buffer size is automatically clamped to 1/4 of VRAM to avoid allocation failure.
