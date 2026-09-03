@@ -1,0 +1,8 @@
+# Build artifacts
+vk_bandwidth
+bandwidth_test
+
+# Editor / system
+*.o
+*.swp
+*~
