@@ -213,6 +213,29 @@ WARNING: radv is not a conformant Vulkan implementation, testing use only.
 
 > The R5 240 (Oland, GCN 1.0) uses 128-bit DDR3 memory (≈28.8 GB/s peak), which explains the very low ~13 GB/s copy bandwidth compared to GDDR-based cards. RADV also reports it as a non-conformant Vulkan implementation on this GCN 1.0 part.
 
+### NVIDIA GeForce RTX 2060
+
+| GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
+|---|---|---|---|
+| NVIDIA GeForce RTX 2060 | **257.01 GB/s** | **12.76 GB/s** | **13.01 GB/s** |
+
+Full output:
+
+```
+== NVIDIA GeForce RTX 2060 ==
+  driverVersion 580.568.0   device-local heap 6144.0 MB
+  buffer size 256 MB
+
+  -- VRAM bandwidth --
+  D2D copy         best   257.01 GB/s   avg   256.14 GB/s
+
+  -- PCIe bandwidth --
+  H2D (write)      best    12.76 GB/s   avg    12.72 GB/s
+  D2H (read)       best    13.01 GB/s   avg    12.94 GB/s
+```
+
+> The RTX 2060 (TU106) uses 192-bit GDDR6 at 14 Gbps (≈336 GB/s peak); the ~257 GB/s copy is ~76% of peak. PCIe ~12.8 GB/s is consistent with Gen3 ×16 (15.75 GB/s theoretical).
+
 ---
 
 ## Notes
