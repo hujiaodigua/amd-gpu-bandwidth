@@ -186,6 +186,33 @@ Full output:
 
 > The RX 5300's PCIe bandwidth is capped at ~14 GB/s because it sits behind a Navi 10 PCIe switch with a PCIe 4.0 ×8 upstream link; the Tesla P4 runs at PCIe 3.0 ×8.
 
+### AMD Radeon R5 240 (RADV OLAND)
+
+Measured on a Zhaoxin KX-7000 host (Ubuntu 22.04). The device is detected as `AMD Radeon HD 8500 Series (RADV OLAND)` (`Oland [Radeon HD 8570 / R5 430 / R7 240/340 / Radeon 520 OEM]`):
+
+| GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
+|---|---|---|---|
+| AMD Radeon R5 240 (RADV OLAND) | **13.25 GB/s** | **5.84 GB/s** | **5.61 GB/s** |
+
+Full output:
+
+```
+WARNING: radv is not a conformant Vulkan implementation, testing use only.
+
+== AMD Radeon HD 8500 Series (RADV OLAND) ==
+  driverVersion 23.2.1   device-local heap 1024.0 MB
+  buffer size 256 MB
+
+  -- VRAM bandwidth --
+  D2D copy         best    13.25 GB/s   avg    13.22 GB/s
+
+  -- PCIe bandwidth --
+  H2D (write)      best     5.84 GB/s   avg     5.83 GB/s
+  D2H (read)       best     5.61 GB/s   avg     5.61 GB/s
+```
+
+> The R5 240 (Oland, GCN 1.0) uses 128-bit DDR3 memory (≈28.8 GB/s peak), which explains the very low ~13 GB/s copy bandwidth compared to GDDR-based cards. RADV also reports it as a non-conformant Vulkan implementation on this GCN 1.0 part.
+
 ---
 
 ## Notes
