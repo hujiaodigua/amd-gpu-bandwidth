@@ -188,7 +188,7 @@ Full output:
 
 ### AMD Radeon R5 240 (RADV OLAND)
 
-Measured on a Zhaoxin KX-7000 host (Ubuntu 22.04). The device is detected as `AMD Radeon HD 8500 Series (RADV OLAND)` (`Oland [Radeon HD 8570 / R5 430 / R7 240/340 / Radeon 520 OEM]`):
+The device is detected as `AMD Radeon HD 8500 Series (RADV OLAND)` (`Oland [Radeon HD 8570 / R5 430 / R7 240/340 / Radeon 520 OEM]`):
 
 | GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
 |---|---|---|---|
