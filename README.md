@@ -155,6 +155,8 @@ Measured with `./vk_bandwidth` (256 MB buffer) on an AMD Ryzen 9 5900X host (Ubu
 
 | GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
 |---|---|---|---|
+| NVIDIA GeForce RTX 2060 | **257.01 GB/s** | **12.76 GB/s** | **13.01 GB/s** |
+| AMD Radeon RX 560 XT (RADV POLARIS10) | **168.28 GB/s** | **11.74 GB/s** | **10.76 GB/s** |
 | AMD Radeon RX 5300 (RADV NAVI14) | **150.23 GB/s** | **14.37 GB/s** | **13.69 GB/s** |
 | Tesla P4 | **147.96 GB/s** | **6.66 GB/s** | **6.61 GB/s** |
 
@@ -235,6 +237,31 @@ Full output:
 ```
 
 > The RTX 2060 (TU106) uses 192-bit GDDR6 at 14 Gbps (≈336 GB/s peak); the ~257 GB/s copy is ~76% of peak. PCIe ~12.8 GB/s is consistent with Gen3 ×16 (15.75 GB/s theoretical).
+
+### AMD Radeon RX 560 XT
+
+The device is detected as `AMD Radeon RX 470 Series (RADV POLARIS10)`:
+
+| GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
+|---|---|---|---|
+| AMD Radeon RX 560 XT (RADV POLARIS10) | **168.28 GB/s** | **11.74 GB/s** | **10.76 GB/s** |
+
+Full output:
+
+```
+== AMD Radeon RX 470 Series (RADV POLARIS10) ==
+  driverVersion 25.2.8   device-local heap 3840.0 MB
+  buffer size 256 MB
+
+  -- VRAM bandwidth --
+  D2D copy         best   168.28 GB/s   avg   166.45 GB/s
+
+  -- PCIe bandwidth --
+  H2D (write)      best    11.74 GB/s   avg    11.69 GB/s
+  D2H (read)       best    10.76 GB/s   avg    10.72 GB/s
+```
+
+> The RX 560 XT (Polaris 10) uses 256-bit GDDR5 (≈224 GB/s peak); the ~168 GB/s copy is ~75% of peak. PCIe ~11.7 GB/s is consistent with Gen3 ×16 (15.75 GB/s theoretical).
 
 ---
 
