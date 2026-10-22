@@ -159,6 +159,7 @@ Measured with `./vk_bandwidth` (256 MB buffer) on an AMD Ryzen 9 5900X host (Ubu
 | AMD Radeon RX 560 XT (RADV POLARIS10) | **168.28 GB/s** | **11.74 GB/s** | **10.76 GB/s** |
 | AMD Radeon RX 5300 (RADV NAVI14) | **150.23 GB/s** | **14.37 GB/s** | **13.69 GB/s** |
 | Tesla P4 | **147.96 GB/s** | **6.66 GB/s** | **6.61 GB/s** |
+| NVIDIA GeForce GTX 1050 (Gen3 ×4) | **78.10 GB/s** | **3.32 GB/s** | **3.38 GB/s** |
 
 Full output:
 
