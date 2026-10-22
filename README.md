@@ -263,6 +263,29 @@ Full output:
 
 > The RX 560 XT (Polaris 10) uses 256-bit GDDR5 (≈224 GB/s peak); the ~168 GB/s copy is ~75% of peak. PCIe ~11.7 GB/s is consistent with Gen3 ×16 (15.75 GB/s theoretical).
 
+### NVIDIA GeForce GTX 1050 (Gen3 ×4)
+
+| GPU | VRAM D2D copy | PCIe H2D (write) | PCIe D2H (read) |
+|---|---|---|---|
+| NVIDIA GeForce GTX 1050 | **78.10 GB/s** | **3.32 GB/s** | **3.38 GB/s** |
+
+Full output:
+
+```
+== NVIDIA GeForce GTX 1050 ==
+  driverVersion 580.712.256   device-local heap 2048.0 MB
+  buffer size 256 MB
+
+  -- VRAM bandwidth --
+  D2D copy         best    78.10 GB/s   avg    77.77 GB/s
+
+  -- PCIe bandwidth --
+  H2D (write)      best     3.32 GB/s   avg     3.32 GB/s
+  D2H (read)       best     3.38 GB/s   avg     3.38 GB/s
+```
+
+> The GTX 1050 (GP107) uses 128-bit GDDR5 at 7 Gbps (≈112 GB/s peak); the ~78 GB/s copy is ~70% of peak. PCIe ~3.3 GB/s matches **Gen3 ×4** (3.94 GB/s theoretical). The card is capable of ×16 but was installed in an ×4 slot; an ×1 link would only reach ~0.8 GB/s.
+
 ---
 
 ## Notes
