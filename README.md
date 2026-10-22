@@ -158,7 +158,7 @@ Measured with `./vk_bandwidth` (256 MB buffer) on an AMD Ryzen 9 5900X host (Ubu
 | NVIDIA GeForce RTX 2060 | **257.01 GB/s** | **12.76 GB/s** | **13.01 GB/s** |
 | AMD Radeon RX 560 XT (RADV POLARIS10) | **168.28 GB/s** | **11.74 GB/s** | **10.76 GB/s** |
 | AMD Radeon RX 5300 (RADV NAVI14) | **150.23 GB/s** | **14.37 GB/s** | **13.69 GB/s** |
-| Tesla P4 | **147.96 GB/s** | **6.66 GB/s** | **6.61 GB/s** |
+| Tesla P4 (Gen3 ×8) | **147.96 GB/s** | **6.66 GB/s** | **6.61 GB/s** |
 | NVIDIA GeForce GTX 1050 (Gen3 ×4) | **78.10 GB/s** | **3.32 GB/s** | **3.38 GB/s** |
 
 Full output:
@@ -187,7 +187,9 @@ Full output:
   D2H (read)       best     6.61 GB/s   avg     6.60 GB/s
 ```
 
-> The RX 5300's PCIe bandwidth is capped at ~14 GB/s because it sits behind a Navi 10 PCIe switch with a PCIe 4.0 ×8 upstream link; the Tesla P4 runs at PCIe 3.0 ×8.
+> The RX 5300's PCIe bandwidth is capped at ~14 GB/s because it sits behind a Navi 10 PCIe switch with a PCIe 4.0 ×8 upstream link.
+>
+> The Tesla P4 reports `LnkSta: Width x8`, i.e. it runs at **PCIe 3.0 ×8** (7.88 GB/s theoretical); the measured ~6.6 GB/s is ~84% of that, typical PCIe efficiency.
 
 ### AMD Radeon R5 240 (RADV OLAND)
 
