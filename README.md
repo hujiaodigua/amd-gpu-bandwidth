@@ -1,3 +1,5 @@
+**Welcome! Anyone is welcome to use this tool to benchmark their GPU and share the results** — feel free to open an issue or pull request with your numbers.
+
 # amd-gpu-bandwidth
 
 A command-line tool for measuring GPU **memory bandwidth** and **PCIe transfer bandwidth**, written in plain C with no third-party dependencies.
