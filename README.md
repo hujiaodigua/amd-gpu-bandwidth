@@ -293,6 +293,40 @@ Full output:
 
 > The GTX 1050 (GP107) uses 128-bit GDDR5 at 7 Gbps (≈112 GB/s peak); the ~78 GB/s copy is ~70% of peak. PCIe ~3.3 GB/s matches **Gen3 ×4** (3.94 GB/s theoretical). The card is capable of ×16 but was installed in an ×4 slot; an ×1 link would only reach ~0.8 GB/s.
 
+### Intel Arc B580 (OpenCL)
+
+Measured with `./bandwidth_test` (OpenCL, 256 MB buffer), not the Vulkan tool:
+
+| Test | Best | Avg |
+|---|---|---|
+| D2D copy | **898.06 GB/s** | 897.81 GB/s |
+| STREAM copy | **416.01 GB/s** | 415.86 GB/s |
+| STREAM scale | **459.72 GB/s** | 436.71 GB/s |
+| STREAM add | **665.77 GB/s** | 665.55 GB/s |
+| STREAM triad | **625.18 GB/s** | 545.18 GB/s |
+| PCIe H2D (write) | **14.37 GB/s** | 11.11 GB/s |
+| PCIe D2H (read) | **13.45 GB/s** | 13.43 GB/s |
+
+Full output:
+
+```
+Device: Intel(R) Arc(TM) B580 Graphics (Intel(R) Corporation)  OpenCL OpenCL 3.0 NEO
+Global mem: 11605.2 MB   Max alloc: 11605.2 MB
+
+== VRAM bandwidth (buffer=256 MB) ==
+  D2D copy       best   898.06 GB/s   avg   897.81 GB/s
+  STREAM copy    best   416.01 GB/s   avg   415.86 GB/s
+  STREAM scale   best   459.72 GB/s   avg   436.71 GB/s
+  STREAM add     best   665.77 GB/s   avg   665.55 GB/s
+  STREAM triad   best   625.18 GB/s   avg   545.18 GB/s
+
+== PCIe bandwidth (buffer=256 MB) ==
+  H2D (write)    best    14.37 GB/s   avg    11.11 GB/s
+  D2H (read)     best    13.45 GB/s   avg    13.43 GB/s
+```
+
+> Measured with the **OpenCL** tool (`bandwidth_test`). Some figures (e.g. D2D copy 898 GB/s) exceed the B580's theoretical ~456 GB/s (192-bit GDDR6 at 19 Gbps), likely because the buffers are filled with highly compressible data and Intel Arc applies memory compression, inflating the reported bandwidth.
+
 ---
 
 ## Notes
